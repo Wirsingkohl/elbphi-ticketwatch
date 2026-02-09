@@ -26,7 +26,7 @@ jobs:
       - name: Run watcher
         env:
           EVENT_URLS: |
-            https://www.elbphilharmonie.de/de/programm/royal-concertgebouw-orchestra-klaus-makela/23474
+            https://www.elbphilharmonie.de/de/programm/strauss-elektra-alan-gilbert/23295
           NTFY_URL: https://ntfy.sh
           NTFY_TOPIC: ${{ secrets.NTFY_TOPIC }}
         run: python watch.py
