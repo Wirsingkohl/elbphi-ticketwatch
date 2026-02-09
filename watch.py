@@ -13,6 +13,12 @@ USER_AGENT = "Mozilla/5.0 (compatible; ElbphiTicketWatch/1.0)"
 TIMEOUT = 20
 STATE_FILE = Path("ticket_state.json")
 
+      - name: Debug time
+        run: |
+          echo "UTC now:    $(date -u)"
+          echo "Local now:  $(date)"
+          echo "Event name: $GITHUB_EVENT_NAME"
+
 
 def fetch(url: str) -> str:
     r = requests.get(url, headers={"User-Agent": USER_AGENT}, timeout=TIMEOUT)
@@ -140,6 +146,7 @@ def main() -> None:
 
     save_state(new_state)
     print(f"[DONE] notified={notified}")
+    
 
 
 if __name__ == "__main__":
