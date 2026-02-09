@@ -26,6 +26,7 @@ jobs:
       - name: Run watcher
         env:
           EVENT_URLS: |
+            https://www.elbphilharmonie.de/de/programm/symphonieorchester-chor-des-bayerischen-rundfunks-sir-simon-rattle/23468
             https://www.elbphilharmonie.de/de/programm/royal-concertgebouw-orchestra-klaus-makela/23474
           NTFY_URL: https://ntfy.sh
           NTFY_TOPIC: ${{ secrets.NTFY_TOPIC }}
