@@ -46,9 +46,11 @@ def detect_state(html: str) -> Tuple[str, Dict[str, str]]:
     # wichtig: SOLD_OUT zuerst prüfen (auf Elbphi-Seiten kann trotzdem "Tickets ab" stehen)
     if "Ausverkauft" in text:
         return "SOLD_OUT", {"title": page_title, "datetime": dt}
-
-    if "Ticketvorverkauf" in text or "Vorverkauf" in text:
+# Nur "Vorverkauf" zählen, wenn wirklich ein Starttermin genannt wird (nicht der Merkliste-Footer!)
+    if re.search(r"\bTicketvorverkauf\s+ab\s+\d{1,2}\.\d{1,2}\.\d{4}\b", text) or \
+       re.search(r"\bVorverkauf\s+ab\s+\d{1,2}\.\d{1,2}\.\d{4}\b", text):
         return "NOT_ON_SALE", {"title": page_title, "datetime": dt}
+
 
     if "Tickets ab" in text or "Tickets kaufen" in text:
         return "AVAILABLE", {"title": page_title, "datetime": dt}
