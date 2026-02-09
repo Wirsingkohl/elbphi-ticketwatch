@@ -3,7 +3,7 @@ name: Elbphi Ticket Watch
 on:
   workflow_dispatch:
   schedule:
-    - cron: "*/10 * * * *"  # alle 10 Minuten (UTC)
+    - cron: "7,17,27,37,47,57 * * * *"
 
 jobs:
   watch:
