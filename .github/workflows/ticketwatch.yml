@@ -29,7 +29,6 @@ jobs:
             https://www.elbphilharmonie.de/de/programm/royal-concertgebouw-orchestra-klaus-makela/23474
             https://www.elbphilharmonie.de/de/programm/symphonieorchester-chor-des-bayerischen-rundfunks-sir-simon-rattle/23468
             https://www.elbphilharmonie.de/de/programm/konzerthausorchester-berlin-alice-sara-ott-joana-mallwitz/23142
-            https://www.elbphilharmonie.de/de/programm/kammerkonzert-der-orchesterakademie/23749
           NTFY_URL: https://ntfy.sh
           NTFY_TOPIC: ${{ secrets.NTFY_TOPIC }}
         run: python watch.py
